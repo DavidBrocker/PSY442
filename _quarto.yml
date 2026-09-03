@@ -1,0 +1,18 @@
+project:
+  type: default
+  output-dir: docs
+
+title: "PSY 442 — Senior Project I"
+
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    width: 1920
+    height: 1080
+    center: false
+    slide-number: true
+    footer: "PSY 442"
+    transition: slide
+    transition-speed: default
+    background-transition: slide
+    highlight-style: solarized

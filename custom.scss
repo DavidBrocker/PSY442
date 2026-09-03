@@ -1,0 +1,129 @@
+/*-- scss:defaults --*/
+$body-bg: #FBF4E6;
+$body-color: #241F1A;
+$link-color: #2E4E8C;
+$presentation-heading-font: "Space Grotesk", sans-serif;
+$presentation-font: "Inter", sans-serif;
+$presentation-font-size-root: 28px;
+$presentation-h1-font-size: 2.6em;
+$presentation-h2-font-size: 1.7em;
+$presentation-h3-font-size: 1.3em;
+
+/*-- scss:rules --*/
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&display=swap');
+
+// PSY 442 palette tokens — mustard + cobalt, two-color energy
+$accent: #D9A75B;
+$accent-2: #2E4E8C;
+$accent-3: #F0DDB0; // mustard tint
+$accent-4: #C9D6EA; // cobalt tint
+
+// Title slide — mustard field + CSS confetti-dot texture (no image asset)
+.reveal .slides section.title-slide {
+  background-color: $accent;
+  background-image:
+    radial-gradient(circle at 10% 22%, $accent-2 0 6px, transparent 7px),
+    radial-gradient(circle at 87% 18%, $accent-3 0 9px, transparent 10px),
+    radial-gradient(circle at 76% 82%, $accent-2 0 11px, transparent 12px),
+    radial-gradient(circle at 18% 86%, $accent-4 0 8px, transparent 9px),
+    radial-gradient(circle at 93% 58%, $body-color 0 5px, transparent 6px),
+    radial-gradient(circle at 42% 8%, $accent-4 0 5px, transparent 6px);
+
+  &::before {
+    content: "PSY 442 · Senior Project I";
+    display: inline-block;
+    font-family: $presentation-font;
+    font-weight: 600;
+    font-size: 0.45em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $body-color;
+    background: $body-bg;
+    padding: 0.25em 0.9em;
+    border-radius: 999px;
+    margin-bottom: 0.6em;
+  }
+
+  h1.title {
+    font-family: $presentation-heading-font;
+    font-weight: 700;
+    color: $body-color;
+  }
+
+  p.subtitle {
+    font-family: $presentation-heading-font;
+    font-weight: 500;
+    color: $body-color;
+    opacity: 0.85;
+  }
+
+  p.author {
+    display: inline-block;
+    font-family: $presentation-font;
+    font-weight: 600;
+    font-size: 0.6em;
+    color: $accent-2;
+    background: $body-bg;
+    padding: 0.2em 0.8em;
+    border-radius: 999px;
+    margin-top: 0.4em;
+  }
+}
+
+// Ported components — mustard/cobalt tokens (same class names as PSY 348/360)
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.badge-row { display: flex; gap: 1.2em; justify-content: center; flex-wrap: wrap; }
+.content-badge {
+  background: $accent-3;
+  border-radius: 12px;
+  padding: 1em 1.2em;
+  text-align: left;
+  flex: 1;
+  min-width: 220px;
+}
+.content-badge .badge-title {
+  display: block;
+  font-family: $presentation-heading-font;
+  font-weight: 700;
+  color: $accent-2;
+  margin-bottom: 0.3em;
+}
+.content-badge .badge-desc { font-size: 0.7em; line-height: 1.35; }
+
+.icon-row { display: flex; gap: 2em; justify-content: center; }
+.icon-row-item { display: flex; flex-direction: column; align-items: center; gap: 0.4em; }
+.icon-row-item .material-icons { font-size: 1.8em; color: $accent-2; }
+.icon-row-item .caption { font-size: 0.55em; letter-spacing: 0.08em; text-transform: uppercase; color: $accent-2; font-weight: 600; }
+
+.material-icons.inline-icon { color: $accent-2; vertical-align: middle; margin-right: 0.3em; }
+
+// New 442-only component: sticker-tag — a rotated, punchy pill for the
+// "loud & playful" moments (discussion-prompt options, future callouts).
+// Alternates mustard/cobalt fill and rotation per nth-child so a row of them
+// reads like stickers slapped on the slide, not a tidy list.
+.sticker-grid { display: flex; gap: 1.6em; justify-content: center; margin-top: 0.6em; }
+.sticker-tag {
+  border-radius: 18px;
+  padding: 1.1em 1.3em;
+  max-width: 260px;
+  text-align: left;
+  box-shadow: 0 6px 0 rgba(36, 31, 26, 0.12);
+}
+.sticker-tag:nth-child(odd) { background: $accent; color: $body-color; transform: rotate(-3deg); }
+.sticker-tag:nth-child(even) { background: $accent-2; color: $body-bg; transform: rotate(3deg); }
+.sticker-tag .sticker-label {
+  display: block;
+  font-family: $presentation-font;
+  font-weight: 700;
+  font-size: 0.55em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 0.35em;
+}
+.sticker-tag .sticker-body { font-family: $presentation-heading-font; font-weight: 500; font-size: 0.85em; }
+
+// Incremental bullets — current highlighted, prior dimmed (house standard)
+.reveal .slides section .fragment.highlight-current-blue { color: rgba($body-color, 0.35); }
+.reveal .slides section .fragment.highlight-current-blue.current-fragment { color: $accent-2; font-weight: 600; }

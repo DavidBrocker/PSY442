@@ -1,0 +1,90 @@
+---
+title: "Senior Project I"
+subtitle: "Course Overview"
+author: "Dave Brocker"
+format: revealjs
+---
+
+## Roadmap
+
+```{=html}
+<div class="icon-row">
+  <div class="icon-row-item"><span class="material-icons">person</span><span class="caption">My Background</span></div>
+  <div class="icon-row-item"><span class="material-icons">groups</span><span class="caption">Class Introductions</span></div>
+  <div class="icon-row-item"><span class="material-icons">fact_check</span><span class="caption">Course Overview</span></div>
+  <div class="icon-row-item"><span class="material-icons">event</span><span class="caption">Internship Timeline</span></div>
+</div>
+```
+
+## Background
+
+```{=html}
+<div class="badge-row">
+  <div class="content-badge">
+    <span class="badge-title">Undergraduate</span>
+    <span class="badge-desc">Bachelor of Science in Applied Psychology, Farmingdale State College</span>
+  </div>
+  <div class="content-badge">
+    <span class="badge-title">Research Interests</span>
+    <span class="badge-desc">Morbid curiosity, creepiness, emotion &amp; morality, language</span>
+  </div>
+  <div class="content-badge">
+    <span class="badge-title">Graduate</span>
+    <span class="badge-desc">Master of Arts in Experimental Psychology</span>
+  </div>
+</div>
+```
+
+## Who are you?
+
+Pick one option from the choices above!
+
+```{=html}
+<div class="sticker-grid">
+  <div class="sticker-tag">
+    <span class="sticker-label">Option 1</span>
+    <span class="sticker-body">Tell me something about yourself</span>
+  </div>
+  <div class="sticker-tag">
+    <span class="sticker-label">Option 2</span>
+    <span class="sticker-body">Tell me a hot-take you have</span>
+  </div>
+  <div class="sticker-tag">
+    <span class="sticker-label">Option 3</span>
+    <span class="sticker-body">What would you like said at your funeral?</span>
+  </div>
+</div>
+```
+
+## Course Overview
+
+::: {.incremental}
+- <span class="material-icons inline-icon">search</span>Identify a research question and advisor by week 3
+- <span class="material-icons inline-icon">description</span>Draft a formal research proposal, workshopped in class
+- <span class="material-icons inline-icon">verified</span>Prepare and submit an IRB application before data collection
+- <span class="material-icons inline-icon">event_repeat</span>Biweekly check-ins to track progress against the proposal
+- <span class="material-icons inline-icon">campaign</span>Present findings to the class at the end of the semester
+:::
+
+## Course Assignments
+
+```{=html}
+<div class="badge-row">
+  <div class="content-badge">
+    <span class="badge-title">Research Proposal</span>
+    <span class="badge-desc">Question, background, and proposed method</span>
+  </div>
+  <div class="content-badge">
+    <span class="badge-title">Literature Review &amp; IRB</span>
+    <span class="badge-desc">Prior work summary and ethics application</span>
+  </div>
+  <div class="content-badge">
+    <span class="badge-title">Progress Check-ins</span>
+    <span class="badge-desc">Biweekly updates on data collection and analysis</span>
+  </div>
+  <div class="content-badge">
+    <span class="badge-title">Final Presentation &amp; Thesis</span>
+    <span class="badge-desc">Findings presented to the class, written up in full</span>
+  </div>
+</div>
+```
