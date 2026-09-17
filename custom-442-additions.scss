@@ -1,0 +1,226 @@
+/* =====================================================================
+   PSY 442 — Personal Branding deck: SCSS additions
+   ---------------------------------------------------------------------
+   MERGE these into quarto-442/custom.scss. This is a DRAFT written
+   without sight of the live 442 custom.scss (device bridge was down),
+   so before pasting:
+
+   1. If quarto-442/custom.scss already defines the 442 palette tokens
+      and the SHARED components (.hero-def, .term-list, .badge-row/
+      .content-badge, .icon-row/.icon-row-item, .you-callout), DO NOT
+      duplicate them — keep the existing ones and paste only the
+      DECK-SPECIFIC block below (title-confetti, sticker-tag,
+      mission-slide, your-turn, brand-hub, audit-slide, assoc-grid,
+      screenshot sizers).
+   2. Specificity gotcha (learned the hard way, 9/4): the global
+      `.reveal .slide p { color: $body-color }` rule beats single-class
+      selectors. Any pill/callout whose TEXT must be a custom color is
+      written here as `.reveal .slide .x p { ... }` to match it.
+   ===================================================================== */
+
+/*-- scss:defaults --*/
+
+// --- 442 palette (from the Course Style Guide canvas spec) ---
+// If these already live in custom.scss, delete this defaults block.
+$accent:      #D9A75B;   // mustard
+$accent2:     #2E4E8C;   // cobalt
+$accent-tint: #F0DDB0;   // mustard tint
+$accent2-tint:#C9D6EA;   // cobalt tint
+$body-bg:     #FBF4E6;   // warm cream
+$body-color:  #2B2B2B;
+
+$font-family-sans-serif: "Inter", sans-serif;
+$presentation-heading-font: "Space Grotesk", sans-serif;
+
+/*-- scss:rules --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&display=swap');
+
+/* =====================================================================
+   DECK-SPECIFIC COMPONENTS (paste even if shared components exist)
+   ===================================================================== */
+
+/* --- Custom confetti title slide --- */
+#custom-title {
+  .title-confetti {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+      radial-gradient(circle at 15% 20%, $accent 0 14px, transparent 15px),
+      radial-gradient(circle at 82% 15%, $accent2 0 12px, transparent 13px),
+      radial-gradient(circle at 25% 80%, $accent2-tint 0 16px, transparent 17px),
+      radial-gradient(circle at 90% 78%, $accent 0 10px, transparent 11px),
+      radial-gradient(circle at 50% 8%,  $accent-tint 0 9px, transparent 10px),
+      radial-gradient(circle at 68% 88%, $accent2 0 8px, transparent 9px);
+  }
+  .title-main {
+    font-family: $presentation-heading-font;
+    font-weight: 700;
+    font-size: 3.4em;
+    line-height: 1.05;
+    color: $accent2;
+  }
+  .title-sub {
+    font-family: $presentation-heading-font;
+    font-weight: 500;
+    font-size: 1.5em;
+    margin-top: .3em;
+    color: $body-color;
+  }
+  .punch-row { margin-top: 1.2em; display: flex; gap: .6em; flex-wrap: wrap; justify-content: center; }
+}
+.punch-pill {
+  display: inline-block;
+  background: $accent2;
+  color: #fff;
+  font-family: $presentation-heading-font;
+  font-weight: 500;
+  padding: .35em .9em;
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 rgba(0,0,0,.18);
+}
+.reveal .slide .punch-row p { color: #fff; } // beat the global p rule
+
+/* --- Sticker tag (442 signature: rotated, drop-shadowed pill) --- */
+.sticker-tag {
+  display: inline-block;
+  background: $accent;
+  color: $body-color;
+  font-family: $presentation-heading-font;
+  font-weight: 500;
+  padding: .4em 1em;
+  border-radius: 10px;
+  transform: rotate(-3deg);
+  box-shadow: 4px 4px 0 rgba(46,78,140,.25);
+}
+.reveal .slide .sticker-tag { color: $body-color; }
+
+/* --- Section-break slides --- */
+.reveal section.section-break h1,
+.reveal .slide.section-break h1 {
+  font-size: 2.8em;
+  color: #fff;
+}
+.reveal .slides section.section-break {
+  background: $accent2;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+}
+
+/* --- Center-title helper (top-aligned house style keeps center:false;
+       this just centers the heading text) --- */
+.reveal .slide.center-title h2 { text-align: center; }
+
+/* --- Mission guessing game --- */
+.mission-slide {
+  blockquote {
+    font-family: $presentation-heading-font;
+    font-size: 1.8em;
+    font-weight: 500;
+    border: none;
+    color: $accent2;
+    max-width: 80%;
+    margin: .4em auto;
+  }
+}
+.mission-num {
+  display: inline-block;
+  font-family: $presentation-heading-font;
+  font-weight: 700;
+  font-size: 1.6em;
+  color: $accent;
+}
+.reveal-brand {
+  text-align: center;
+  .brand-logo { max-height: 180px; width: auto; margin: .3em auto; }
+  strong { display: block; font-family: $presentation-heading-font; font-size: 1.4em; color: $body-color; }
+}
+
+/* --- "Now write yours" exercise --- */
+.your-turn-frame {
+  background: #fff;
+  border: 3px solid $accent2;
+  border-radius: 16px;
+  padding: .8em 1.4em;
+  max-width: 60%;
+}
+.worked-example {
+  margin-top: .8em;
+  background: $accent-tint;
+  border-left: 8px solid $accent;
+  border-radius: 12px;
+  padding: .7em 1.2em;
+  max-width: 70%;
+  blockquote {
+    font-family: $presentation-heading-font;
+    font-size: 1.5em;
+    border: none;
+    color: $accent2;
+    margin: .2em 0 0 0;
+  }
+}
+
+/* --- Four brand principles --- */
+.principle {
+  text-align: center;
+  h2 { font-size: 2.4em; color: $accent2; }
+  .principle-icon { max-height: 220px; margin: .3em auto; }
+}
+
+/* --- Your Brand hub --- */
+.hub-spokes {
+  display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; margin-top: 1em;
+  .spoke {
+    background: #fff;
+    border: 3px solid $accent;
+    border-radius: 14px;
+    padding: .7em 1.4em;
+    font-family: $presentation-heading-font;
+    font-size: 1.3em;
+    box-shadow: 4px 4px 0 rgba(46,78,140,.2);
+  }
+}
+
+/* --- Online-presence audit gag --- */
+.audit-slide { text-align: center; }
+.audit-shot { max-height: 55vh; width: auto; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+.audit-verdict {
+  display: inline-block; font-family: $presentation-heading-font; font-weight: 700;
+  font-size: 2em; color: #C0392B; margin-top: .2em;
+}
+.audit-score {
+  display: inline-block; font-family: $presentation-heading-font; font-weight: 700;
+  font-size: 2.4em; color: #fff; background: #C0392B; padding: .2em .7em; border-radius: 12px;
+  transform: rotate(-2deg);
+}
+.reveal .slide .audit-verdict p,
+.reveal .slide .audit-score p { color: inherit; }
+
+/* --- Association grids --- */
+.assoc-grid ul {
+  columns: 2; column-gap: 2.5em; list-style: none; font-size: .95em;
+  li { margin-bottom: .5em; break-inside: avoid; }
+  li::before { content: "▸ "; color: $accent; font-weight: 700; }
+}
+
+/* --- Screenshot sizers --- */
+.side-figure   { max-height: 45vh; width: auto; float: right; margin-left: 1em; border-radius: 12px; }
+.linkedin-shot { max-height: 42vh; width: auto; display: block; margin: 0 auto .5em; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,.2); }
+.website-shot  { max-height: 42vh; width: auto; display: block; margin: 0 auto .5em; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,.2); }
+.badge-icon    { height: 1.4em; width: auto; vertical-align: middle; margin-right: .3em; }
+
+/* =====================================================================
+   SHARED COMPONENTS — assumed already present in quarto-442/custom.scss
+   (ported from 348/360). If they are NOT yet in 442, port them over:
+     .hero-def, .term-list  (term-pill + definition card)
+     .badge-row / .content-badge
+     .icon-row / .icon-row-item
+     .you-callout           (student-input prompt pill)
+   Definition-list syntax (`Term` / `: def`) is what compiles into
+   .hero-def / .term-list on this site, which is why the definition and
+   LinkedIn slides above use it.
+   ===================================================================== */
