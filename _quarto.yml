@@ -2,8 +2,6 @@ project:
   type: default
   output-dir: docs
 
-title: "PSY 442 — Senior Project I"
-
 format:
   revealjs:
     theme: [default, custom.scss]
